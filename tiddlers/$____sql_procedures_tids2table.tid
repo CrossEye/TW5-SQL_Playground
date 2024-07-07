@@ -1,0 +1,19 @@
+code-body: yes
+created: 20240706234106297
+modified: 20240707015236349
+tags: $:/tags/Global
+title: $:/_/sql/procedures/tids2table
+type: text/vnd.tiddlywiki
+
+\procedure tids2table(filter)
+<table class="field-list">
+  <tr>
+  <$list filter="[subfilter<filter>first[]fields[]] -[[title]] -[[text]] -[[modified]] -[[modifier]] -[[created]] -[[creator]] -[[tags]] -[[type]] -[[list]] -[[caption]] -[[revision]] -[[bag]]" ><th><<currentTiddler>></th></$list>
+  </tr>
+  <$list filter="[subfilter<filter>]"><tr>
+    <$list filter="[<currentTiddler>fields[]] -[[title]] -[[text]] -[[modified]] -[[modifier]] -[[created]] -[[creator]] -[[tags]] -[[type]] -[[list]] -[[caption]] -[[revision]] -[[bag]]" variable="field">
+      <td><$text text={{{ [<currentTiddler>get<field>] }}} /></td>
+    </$list>
+  </tr></$list>
+</table>
+\end

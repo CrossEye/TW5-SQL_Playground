@@ -1,0 +1,25 @@
+caption: SQL Order By (descending)
+created: 20240707000531233
+modified: 20240707020441771
+source: https://www.dofactory.com/sql/order-by
+tags: Example
+title: Example/031
+type: text/vnd.tiddlywiki
+
+!!! SQL
+```sql
+SELECT *
+  FROM Supplier
+ ORDER BY CompanyName DESC
+```
+
+!!! Filter
+```text
+[tag[Supplier]!sort[company-name]]
+```
+
+!!! List Results
+<<list-links filter:"[tag[Supplier]!sort[company-name]]" >>
+
+!!! Tabular View
+<<tids2table "[tag[Supplier]!sort[company-name]]">>

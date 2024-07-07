@@ -1,0 +1,11 @@
+caption: OrderItem/2
+created: 20240705011329059
+id: 2
+modified: 20240705011329059
+order-id: 1
+product-id: 42
+quantity: 10
+tags: OrderItem
+title: OrderItem/2
+type: text/vnd.tiddlywiki
+unit-price: 9.80
