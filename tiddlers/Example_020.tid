@@ -1,6 +1,6 @@
 caption: SQL Where
 created: 20240706235540278
-modified: 20240707005618486
+modified: 20240708231509430
 source: https://www.dofactory.com/sql/where
 tags: Example
 title: Example/020
@@ -10,7 +10,7 @@ type: text/vnd.tiddlywiki
 ```sql
 SELECT *
   FROM Supplier
- WHERE Country = 'UK'
+ WHERE Country = 'France'
 ```
 
 !!! Filter

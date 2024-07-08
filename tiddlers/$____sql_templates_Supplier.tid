@@ -1,5 +1,5 @@
 created: 20240704212858403
-modified: 20240707012311239
+modified: 20240708231559239
 tags: $:/tags/ViewTemplate
 title: $:/_/sql/templates/Supplier
 type: text/vnd.tiddlywiki
@@ -7,6 +7,7 @@ type: text/vnd.tiddlywiki
 <% if [<currentTiddler>tag[Supplier]] %>
 
 <strong>{{!!company-name}}</strong><br/>
+Contact: {{!!contact-name}}<br/>
 <address>
   {{!!city}}, {{!!country}}<br />
   Phone: <a href=`tel:${ [{!!phone}search-replace:g:regexp[\D],[]] }$`>{{!!phone}}</a>
