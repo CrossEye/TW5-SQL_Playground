@@ -1,12 +1,10 @@
 caption: SQL Where In (alternate)
 created: 20240707002321384
-modified: 20240707161214027
+modified: 20240708003458716
 source: https://www.dofactory.com/sql/order-by
-tags: Example TODO Broken
+tags: Example TODO
 title: Example/041
 type: text/vnd.tiddlywiki
-
-It's not clear why this isn't working yet.  I've [[seen this technique work|https://talk.tiddlywiki.org/t/7897/7]], so it's probably just a silly error.
 
 !!! SQL
 ```sql
@@ -17,11 +15,11 @@ SELECT *
 
 !!! Filter
 ```text
-[tag[Supplier]] :filter[[USA,Japan,Germany].split[,]match{!!country}]
+[tag[Supplier]] :filter[[USA,Japan,Germany]split[,]match{!!country}]
 ```
 
 !!! List Results
-<<list-links filter:"[tag[Supplier]] :filter[[USA,Japan,Germany].split[,]match{!!country}]" >>
+<<list-links filter:"[tag[Supplier]] :filter[[USA,Japan,Germany]split[,]match{!!country}]" >>
 
 !!! Tabular View
-<<tids2table "[tag[Supplier]] :filter[[USA,Japan,Germany].split[,]match{!!country}]">>
+<<tids2table "[tag[Supplier]] :filter[[USA,Japan,Germany]split[,]match{!!country}]">>
