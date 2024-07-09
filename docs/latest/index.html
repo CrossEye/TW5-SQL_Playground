@@ -141,9 +141,13 @@ Error message and password prompt
 
 <p>This <a class="tc-tiddlylink-external" href="https://tiddlywiki.com" rel="noopener noreferrer" target="_blank">TiddlyWiki</a> contains the following tiddlers:</p><p><ul>
 
+<li>$:/_/sql/config/ViewTemplateBodyFilters/country</li>
+
 <li>$:/_/sql/config/ViewTemplateTitleFilters/caption</li>
 
 <li>$:/_/sql/core/ui/ViewTemplate/title/caption</li>
+
+<li>$:/_/sql/functions/all.countries</li>
 
 <li>$:/_/sql/procedures/field-list</li>
 
@@ -152,6 +156,8 @@ Error message and password prompt
 <li>$:/_/sql/styles/custom</li>
 
 <li>$:/_/sql/templates/Broken</li>
+
+<li>$:/_/sql/templates/Country</li>
 
 <li>$:/_/sql/templates/Customer</li>
 
@@ -219,6 +225,8 @@ Error message and password prompt
 
 <li>$:/tags/ViewTemplate</li>
 
+<li>$:/tags/ViewTemplateBodyFilter</li>
+
 <li>$:/tags/ViewTemplateTitleFilter</li>
 
 <li>$:/themes/tiddlywiki/snowwhite</li>
@@ -242,6 +250,10 @@ Error message and password prompt
 <li>$:/themes/tiddlywiki/vanilla/options/stickytitles</li>
 
 <li>About</li>
+
+<li>Countries</li>
+
+<li>Countries 1</li>
 
 <li>Customer</li>
 
@@ -446,6 +458,8 @@ Error message and password prompt
 <li>Example/042</li>
 
 <li>Example/050</li>
+
+<li>Example/290</li>
 
 <li>Example/420</li>
 
@@ -6651,6 +6665,8 @@ Error message and password prompt
 
 <li>TableOfContents</li>
 
+<li>Test all countries</li>
+
 <li>TiddlyWiki</li>
 
 </ul>
@@ -6666,9 +6682,13 @@ Error message and password prompt
 </noscript>
 <!--~~ Ordinary tiddlers ~~-->
 <script class="tiddlywiki-tiddler-store" type="application/json">[
+{"title":"$:/_/sql/config/ViewTemplateBodyFilters/country","code-body":"yes","created":"20240205005428682","modified":"20240709123037611","tags":"$:/tags/ViewTemplateBodyFilter","type":"text/vnd.tiddlywiki","text":"[all[]] :intersection[all.countries[]] :then[[$:/_/sql/templates/Country]]","revision":"0","bag":"default"}
+,
 {"title":"$:/_/sql/config/ViewTemplateTitleFilters/caption","created":"20230830142553245","modified":"20240707011904540","tags":"$:/tags/ViewTemplateTitleFilter","type":"text/vnd.tiddlywiki","text":"[\u003CcurrentTiddler>has[caption]then[$:/_/sql/core/ui/ViewTemplate/title/caption]]","revision":"0","bag":"default"}
 ,
 {"title":"$:/_/sql/core/ui/ViewTemplate/title/caption","created":"20230830142431524","modified":"20240707011921717","tags":"","type":"text/vnd.tiddlywiki","text":"\\whitespace trim\r\n\u003Ch2 class=\"tc-title\">\r\n\u003C$view field=\"caption\"/>\r\n\u003C/h2>","revision":"0","bag":"default"}
+,
+{"title":"$:/_/sql/functions/all.countries","code-body":"yes","created":"20240709005030379","modified":"20240709034242396","tags":"$:/tags/Global","type":"text/vnd.tiddlywiki","text":"\\function all.countries() [tag[Customer]get[country]] [tag[Supplier]get[country]] +[unique[]sort[]]\n\n","revision":"0","bag":"default"}
 ,
 {"title":"$:/_/sql/procedures/field-list","code-body":"yes","created":"20240704205930262","modified":"20240707011940123","tags":"$:/tags/Global","type":"text/vnd.tiddlywiki","text":"\\procedure field-list()\n\u003Cbr/>\u003Chr/>\n\u003Cdetails>\n\u003Csummary>Fields\u003C/summary>\n\u003Ctable class=\"field-list\">\n  \u003Ctr>\u003Cth>Name\u003C/th>\u003Cth>Value\u003C/th>\u003C/tr>\n\u003C$list filter=\"[\u003CcurrentTiddler>fields[]sort[]]\" variable=\"field\">\n  \u003Ctr>\u003Ctd>\u003C\u003Cfield>>\u003C/td>\u003Ctd>\u003C$text text={{{ [\u003CcurrentTiddler>get\u003Cfield>] }}} />\u003C/td>\u003C/tr>\n\u003C/$list>\n\u003C/table>\n\u003C/details>\n\\end","revision":"0","bag":"default"}
 ,
@@ -6677,6 +6697,8 @@ Error message and password prompt
 {"title":"$:/_/sql/styles/custom","text":".field-list {\n  td, th {padding: .125em .5em;}\n  th {text-align: left;}\n}\n\n.invoice {\n  display: grid;\n  border: 1px solid #999;\n  margin: 1em;\n  padding: 1em;\n  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;\n  gap: 20px;\n  grid-auto-rows: 1em 7em 2em auto;\n  .order-id {grid-column: 1 / 6; grid-row: 1; text-align: right; padding-right: 1em; font-size: 125%;}\n  .customer {grid-column: 1 / 3; grid-row: 2; padding: 1em 0 0 1em; font-size: 125%}\n  .order-date {grid-column: 3 / 5; grid-row: 2; text-align: left; padding: 1em 1em 0 0; font-size: 175%}\n  .order-total {grid-column: 5; grid-row: 2; text-align: right; padding: 1em 1em 0 0; font-size: 175%}\n  .table-header {\n    grid-column: 1 / 6; grid-row: 3; text-align: center; font-size: 125%; padding-top: 1em; font-weight: bold;\n  }\n  .table-wrapper {grid-column: 1 / 6; grid-row: 4}\n  table {width: 100%;}\n  td, th {padding: .5em; text-align: left}\n  .numeric {text-align: right}\n}\n\n.one-liners li address {display: inline;}\n\ndiv[data-tags~=\"Example\"] {\n  h3:nth-of-type(n - 1) {margin-top: 2em}\n}\n\ndiv[data-tags~=\"Broken\"] {background-color: #fee;}","created":"20240704205341286","modified":"20240707012046466","tags":"$:/tags/Stylesheet","type":"text/css","revision":"0","bag":"default"}
 ,
 {"title":"$:/_/sql/templates/Broken","created":"20240707003920465","modified":"20240707012107526","tags":"$:/tags/ViewTemplate","type":"text/vnd.tiddlywiki","text":"\u003C% if [\u003CcurrentTiddler>tag[Broken]] %>\n\n\u003Ch1>Warning:\u003C/h1>\n\u003Cp>This example is currently broken.  (This is early days of this page, and it should be expected)\u003C/p>\n\u003Chr/>\n\u003C% endif %>","revision":"0","bag":"default"}
+,
+{"title":"$:/_/sql/templates/Country","created":"20240709020122327","modified":"20240709032543511","tags":"","type":"text/vnd.tiddlywiki","text":"Info for country here","revision":"0","bag":"default"}
 ,
 {"title":"$:/_/sql/templates/Customer","created":"20240704024515295","modified":"20240707012524161","tags":"$:/tags/ViewTemplate","type":"text/vnd.tiddlywiki","text":"\u003C% if [\u003CcurrentTiddler>tag[Customer]] %>\n\n\u003C$transclude tiddler=\"$:/_/sql/templates/CustomerCard\" />\n\n!! Orders\n\n\u003Cul>\n\u003C$list filter=\"[tag[Order]customer-id{!!id}!sort[order-date]]\">\n\u003Cli>\u003C$link to=\u003C\u003CcurrentTiddler>> >Order {{!!id}}\u003C/$link> (\u003C$view field=\"order-date\" format=date template=\"0MM/0DD/YYYY\" />, ${{!!total-amount}})\u003C/li>\n\u003C/$list>\n\u003C/ul>\n\u003C% endif %>","revision":"0","bag":"default"}
 ,
@@ -6724,7 +6746,7 @@ Error message and password prompt
 ,
 {"title":"$:/DefaultTiddlers","created":"20240703173538434","modified":"20240706235042758","type":"text/vnd.tiddlywiki","text":"Overview\nExample\nTable\n","revision":"0","bag":"default"}
 ,
-{"title":"$:/Import","status":"complete","type":"text/vnd.tiddlywiki","text":"The following tiddlers were imported:\n\n# [[$:/_/sql/templates/Order]]","revision":"0","bag":"default"}
+{"title":"$:/Import","status":"complete","type":"text/vnd.tiddlywiki","text":"The following tiddlers were imported:\n\n# [[$:/_/bb/config/ViewTemplateBodyFilters/card]]","revision":"0","bag":"default"}
 ,
 {"title":"$:/isEncrypted","text":"no","revision":"0","bag":"default"}
 ,
@@ -6743,6 +6765,8 @@ Error message and password prompt
 {"title":"$:/tags/SideBar","created":"20240221165724596","list":"TableOfContents $:/core/ui/SideBar/Open $:/core/ui/SideBar/Recent $:/core/ui/SideBar/Tools $:/core/ui/SideBar/More","modified":"20240221165724596","revision":"0","type":"text/vnd.tiddlywiki","bag":"default"}
 ,
 {"title":"$:/tags/ViewTemplate","created":"20240707004352719","list":"$:/core/ui/ViewTemplate/title $:/core/ui/ViewTemplate/unfold $:/core/ui/ViewTemplate/subtitle $:/core/ui/ViewTemplate/tags $:/core/ui/ViewTemplate/classic $:/_/sql/templates/Broken $:/core/ui/ViewTemplate/body $:/_/sql/templates/Customer $:/_/sql/templates/Order $:/_/sql/templates/OrderItem $:/_/sql/templates/Product $:/_/sql/templates/Supplier $:/_/sql/templates/Table","modified":"20240707012325360","type":"text/vnd.tiddlywiki","revision":"0","bag":"default"}
+,
+{"title":"$:/tags/ViewTemplateBodyFilter","created":"20240709020657902","list":"$:/config/ViewTemplateBodyFilters/hide-body $:/config/ViewTemplateBodyFilters/code-body $:/config/ViewTemplateBodyFilters/stylesheet $:/config/ViewTemplateBodyFilters/core-ui-tags $:/config/ViewTemplateBodyFilters/system $:/config/ViewTemplateBodyFilters/import $:/config/ViewTemplateBodyFilters/plugin $:/_/sql/config/ViewTemplateBodyFilters/country $:/config/ViewTemplateBodyFilters/default","modified":"20240709020657902","type":"text/vnd.tiddlywiki","revision":"0","bag":"default"}
 ,
 {"title":"$:/tags/ViewTemplateTitleFilter","created":"20240221174508325","list":"$:/config/ViewTemplateTitleFilters/system $:/_/sql/config/ViewTemplateTitleFilters/caption $:/config/ViewTemplateTitleFilters/default","modified":"20240707011904540","type":"text/vnd.tiddlywiki","revision":"0","bag":"default"}
 ,
@@ -6766,7 +6790,11 @@ Error message and password prompt
 ,
 {"title":"$:/themes/tiddlywiki/vanilla/options/stickytitles","created":"20240221172401751","modified":"20240221172401751","revision":"0","type":"text/vnd.tiddlywiki","text":"yes","bag":"default"}
 ,
-{"title":"About","caption":"About (version 0.1.1+)","created":"20240707202916262","modified":"20240707203139458","tags":"TableOfContents TODO","type":"text/vnd.tiddlywiki","version":"0.1.1+","text":"\n\n!! Credits\n\nThe primary author of this is [[Scott Sauyet]].  I hope to add a [[Credits]] page to celebrate those who have helped.\n\n!! Technology\n\n{{TiddlyWiki}}\n\n!! Version\n\n{{!!version}}","revision":"0","bag":"default"}
+{"title":"About","caption":"About (version 0.1.2+)","created":"20240707202916262","modified":"20240707203139458","tags":"TableOfContents TODO","type":"text/vnd.tiddlywiki","version":"0.1.2+","text":"\n\n!! Credits\n\nThe primary author of this is [[Scott Sauyet]].  I hope to add a [[Credits]] page to celebrate those who have helped.\n\n!! Technology\n\n{{TiddlyWiki}}\n\n!! Version\n\n{{!!version}}","revision":"0","bag":"default"}
+,
+{"title":"Countries","created":"20240709005229121","modified":"20240709014225010","tags":"","type":"text/vnd.tiddlywiki","text":"\u003Cdiv style=\"column-width: 12em; padding-top: 0;\">\u003C\u003Clist-links filter:\"[all.countries[]]\" >>\u003C/div>","revision":"0","bag":"default"}
+,
+{"title":"Countries 1","created":"20240709022357540","modified":"20240709122936177","tags":"","type":"text/vnd.tiddlywiki","text":"\u003C$list filter=\"France Brazil Ecuador Russia USA\" >\n  \u003Cli>{{{ [all.countries[]match\u003CcurrentTiddler>then[yes]else[no]] }}}\u003C/li>\n\u003C/$list>","revision":"0","bag":"default"}
 ,
 {"title":"Customer","caption":"Customers","created":"20240703173913071","modified":"20240707012757907","tags":"Table","type":"text/vnd.tiddlywiki","text":"\u003Cul class=\"one-liners\">\n\u003C$list filter=\"[tag[Customer]sort[last-name]]\">\n\u003Cli>\u003C$transclude tiddler=\"$:/_/sql/templates/CustomerLine\"/>\u003C/li>\n\u003C/$list>\n\u003C/ul>","revision":"0","bag":"default"}
 ,
@@ -6971,6 +6999,8 @@ Error message and password prompt
 {"title":"Example/042","caption":"SQL Where In (alternate 2)","created":"20240707014622554","modified":"20240707015153779","source":"https://www.dofactory.com/sql/order-by","tags":"Example TODO","type":"text/vnd.tiddlywiki","text":"!!! SQL\n```sql\nSELECT *\n  FROM Supplier\n WHERE Country IN ('USA', 'Japan', 'Germany')\n```\n\n!!! Filter\n```text\n[tag[Supplier]] :filter[search:country:some[USA Japan Germany]]\n```\n\n!!! List Results\n\u003C\u003Clist-links filter:\"[tag[Supplier]] :filter[search:country:some[USA Japan Germany]]\" >>\n\n!!! Tabular View\n\u003C\u003Ctids2table \"[tag[Supplier]] :filter[search:country:some[USA Japan Germany]]\">>","revision":"0","bag":"default"}
 ,
 {"title":"Example/050","caption":"SQL Inner Join","created":"20240707003430336","modified":"20240707161008888","source":"https://www.dofactory.com/sql/order-by","tags":"Example TODO","type":"text/vnd.tiddlywiki","text":"!!! SQL\n```sql\nSELECT CompanyName, ProductName\n  FROM Supplier S\n  JOIN Product P ON S.Id = P.SupplierId\n```\n\n\n!!! WikiText\n```text\n\u003C$list filter=\"[tag[Supplier]]\" variable=\"company\">\n  \u003C$let company-id={{{ [\u003Ccompany>get[id]] }}} >\n   \u003C$list filter=\"[tag[Product]] :filter[get[supplier-id]match\u003Ccompany-id>]\"  variable=\"product\" />\n  \u003C/$let>\n\u003C/$list>\n```\n\n\n!!! Nested List Results\n\u003Cul>\n\u003C$list filter=\"[tag[Supplier]]\" variable=\"company\">\u003C$let company-id={{{ [\u003Ccompany>get[id]] }}} >\n  \u003Cli>\u003C$link to={{{ [\u003Ccompany>] }}} >\u003C$text text={{{ [\u003Ccompany>get[caption]] }}} />\u003C/$link>\u003Cul>\n   \u003C$list filter=\"[tag[Product]] :filter[get[supplier-id]match\u003Ccompany-id>]\" variable=\"product\">\n    \u003Cli>\n      \u003C$link to={{{ [\u003Cproduct>] }}} >\u003C$text text={{{ [\u003Cproduct>get[caption]] }}} />\u003C/$link>\n    \u003C/li>\n  \u003C/$list>\n\u003C/ul>\u003C/li>\n\u003C/$let>\u003C/$list>\n\u003C/ul>\n\n\n!!! Tabular View\n\u003Ctable>\u003Ctr>\u003Cth>Company Name\u003C/th>\u003Cth>Product Name\u003C/th>\u003C/tr>\n\u003C$list filter=\"[tag[Supplier]]\" variable=\"company\">\n  \u003C$let company-id={{{ [\u003Ccompany>get[id]] }}} >\n   \u003C$list filter=\"[tag[Product]] :filter[get[supplier-id]match\u003Ccompany-id>]\"  variable=\"product\">\n      \u003Ctr>\u003Ctd>\u003C$text text={{{ [\u003Ccompany>get[caption]] }}} />\u003C/td>\u003Ctd>\u003C$text text={{{ [\u003Cproduct>get[caption]] }}} />\u003C/td>\u003C/tr>\n    \u003C/$list>\n  \u003C/$let>\n\u003C/$list>\n\u003C/table>\n","revision":"0","bag":"default"}
+,
+{"title":"Example/290","caption":"SQL Union","created":"20240709010838211","modified":"20240709011507957","source":"https://www.dofactory.com/sql/union","tags":"Example","type":"text/vnd.tiddlywiki","text":"!!! SQL\n```sql\nSELECT Country\n  FROM Customer\nUNION\nSELECT Country\n  FROM Supplier\n ORDER BY Country\n```\n\n!!! Filter\n```text\n[tag[Customer]get[country]] [tag[Supplier]get[country]] +[unique[]sort[]]\n```\n\n!!! List Results\n\u003C\u003Clist-links filter:\"[tag[Customer]get[country]] [tag[Supplier]get[country]] +[unique[]sort[]]\" >>\n","revision":"0","bag":"default"}
 ,
 {"title":"Example/420","caption":"Join 3 tables","created":"20240706195536706","modified":"20240707013240609","source":"https://www.dofactory.com/sql/join-3-tables","tags":"Example TODO","type":"text/vnd.tiddlywiki","text":"TODO: This seems fraught with complexity: using the tilde (`~`) to separate fields, then splitting them apart.  There's surely a better way for this!\n\n!!! SQL\n```sql\nSELECT DISTINCT CompanyName, ProductName\n  FROM Supplier S\n  JOIN Product P ON S.Id = P.SupplierId\n  JOIN OrderItem I ON P.Id = I.ProductId\n ORDER BY CompanyName\n```\n\n!!! WikiText\n```text\n\u003Ctable>\u003Ctr>\u003Cth>Company Name\u003C/th>\u003Cth>Product Name\u003C/th>\u003C/tr>\n\u003C$list filter=\"[tag[OrderItem]get[product-id]unique[]addprefix[Product/]] \n               :map[get[supplier-id]addprefix[Supplier/]get[company-name]addsuffix[~]addsuffix{!!product-name}]\n               +[sort[]]\">\n \u003Ctr>\n   \u003Ctd>\u003C$text text={{{ [\u003CcurrentTiddler>split[~]first[]] }}} />\u003C/td>\n   \u003Ctd>\u003C$text text={{{ [\u003CcurrentTiddler>split[~]last[]] }}} />\u003C/td>\n \u003C/tr>\n\u003C/$list> \n\u003C/table>\n```\n\n!!! Result\n\u003Ctable>\u003Ctr>\u003Cth>Company Name\u003C/th>\u003Cth>Product Name\u003C/th>\u003C/tr>\n\u003C$list filter=\"[tag[OrderItem]get[product-id]unique[]addprefix[Product/]] \n               :map[get[supplier-id]addprefix[Supplier/]get[company-name]addsuffix[~]addsuffix{!!product-name}]\n               +[sort[]]\">\n \u003Ctr>\n   \u003Ctd>\u003C$text text={{{ [\u003CcurrentTiddler>split[~]first[]] }}} />\u003C/td>\n   \u003Ctd>\u003C$text text={{{ [\u003CcurrentTiddler>split[~]last[]] }}} />\u003C/td>\n \u003C/tr>\n\u003C/$list> \n\u003C/table>","revision":"0","bag":"default"}
 ,
@@ -13175,6 +13205,8 @@ Error message and password prompt
 {"title":"Table","caption":"All Tables","created":"20240705164003189","list":"Customer Supplier Product Order OrderItem","modified":"20240705164622195","tags":"TableOfContents","text":"\u003C\u003Clist-links filter:\"[tag\u003CcurrentTiddler>]\">>","revision":"0","bag":"default"}
 ,
 {"title":"TableOfContents","caption":"Contents","created":"20180926191321993","list":"Overview Example Customer Supplier Product Order Table","modified":"20240706210927403","tags":"$:/tags/SideBar","type":"text/vnd.tiddlywiki","text":"\u003Cdiv class=\"tc-table-of-contents\">\n\n\u003C\u003Ctoc-selective-expandable \"TableOfContents\" >>\n\n\u003C/div>\n","revision":"0","bag":"default"}
+,
+{"title":"Test all countries","created":"20240709011519676","modified":"20240709030844191","tags":"","type":"text/vnd.tiddlywiki","text":"* {{{ [all.countries[]match[France]then[yes]else[no]] }}}\n* {{{ [all.countries[]match[Ecuador]then[yes]else[no]] }}}\n\n","revision":"0","bag":"default"}
 ,
 {"title":"TiddlyWiki","created":"20230326225204422","modified":"20240707203303731","tags":"","type":"text/vnd.tiddlywiki","text":"This page is built atop [[TiddlyWiki|https://tiddlywiki.com/]], which is described as \"a unique [[non-linear|https://tiddlywiki.com/#Philosophy%20of%20Tiddlers]] notebook for [[capturing|https://tiddlywiki.com/#Creating%20and%20editing%20tiddlers]], [[organising|https://tiddlywiki.com/#Structuring%20TiddlyWiki]] \nand [[sharing|https://tiddlywiki.com/#Sharing%20your%20tiddlers%20with%20others]] complex information.\"\n\nIt is a single-page wiki, a user-defined database, a note-taking tool, and much more.  ","revision":"0","bag":"default"}
 

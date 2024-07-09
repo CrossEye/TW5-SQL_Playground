@@ -1,0 +1,25 @@
+caption: SQL Union
+created: 20240709010838211
+modified: 20240709011507957
+source: https://www.dofactory.com/sql/union
+tags: Example
+title: Example/290
+type: text/vnd.tiddlywiki
+
+!!! SQL
+```sql
+SELECT Country
+  FROM Customer
+UNION
+SELECT Country
+  FROM Supplier
+ ORDER BY Country
+```
+
+!!! Filter
+```text
+[tag[Customer]get[country]] [tag[Supplier]get[country]] +[unique[]sort[]]
+```
+
+!!! List Results
+<<list-links filter:"[tag[Customer]get[country]] [tag[Supplier]get[country]] +[unique[]sort[]]" >>
