@@ -1,6 +1,6 @@
 {
   "name": "TW5-SQL_Playground",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Periodic Table and other chemistry tools",
   "main": "index.js",
   "scripts": {
