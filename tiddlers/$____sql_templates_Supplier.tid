@@ -1,5 +1,5 @@
 created: 20240704212858403
-modified: 20240708231559239
+modified: 20240710015755326
 tags: $:/tags/ViewTemplate
 title: $:/_/sql/templates/Supplier
 type: text/vnd.tiddlywiki
@@ -9,7 +9,7 @@ type: text/vnd.tiddlywiki
 <strong>{{!!company-name}}</strong><br/>
 Contact: {{!!contact-name}}<br/>
 <address>
-  {{!!city}}, {{!!country}}<br />
+  {{!!city}}, <$link to={{!!country}}/><br />
   Phone: <a href=`tel:${ [{!!phone}search-replace:g:regexp[\D],[]] }$`>{{!!phone}}</a>
   <% if [{!!fax}!match[NULL]] %><br/>FAX: <a href=`tel:${ [{!!fax}search-replace:g:regexp[\D],[]] }$`>{{!!fax}}</a><% endif %>
 </address>

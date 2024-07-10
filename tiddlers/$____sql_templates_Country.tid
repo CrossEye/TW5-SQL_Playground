@@ -1,7 +1,21 @@
+code-body: yes
 created: 20240709020122327
-modified: 20240709032543511
+modified: 20240710015243138
 tags: 
 title: $:/_/sql/templates/Country
 type: text/vnd.tiddlywiki
 
-Info for country here
+<% if [tag[Customer]] :filter[country<storyTiddler>] %>
+
+!! Customers with addresses in <<storyTiddler>>
+
+<<list-links filter:"[tag[Customer]] :filter[country<storyTiddler>]" >>
+<% endif %>
+
+
+<% if [tag[Supplier]] :filter[country<storyTiddler>] %>
+
+!! Suppliers with addresses in <<storyTiddler>>
+
+<<list-links filter:"[tag[Supplier]] :filter[country<storyTiddler>]" >>
+<% endif %>

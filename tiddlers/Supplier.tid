@@ -1,6 +1,7 @@
+_fields_: id city company-name contact-name country fax phone
 caption: Suppliers
 created: 20240703174151065
-modified: 20240706235413835
+modified: 20240709212231342
 tags: Table
 title: Supplier
 type: text/vnd.tiddlywiki

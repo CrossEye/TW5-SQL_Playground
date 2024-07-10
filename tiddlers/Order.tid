@@ -1,6 +1,7 @@
+_fields_: id customer-id order-date order-number total-amount
 caption: Orders
 created: 20240703174029704
-modified: 20240707012816822
+modified: 20240709212619115
 tags: Table TableOfContents
 title: Order
 type: text/vnd.tiddlywiki

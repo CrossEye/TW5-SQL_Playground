@@ -4,4 +4,8 @@ type: text/vnd.tiddlywiki
 
 The following tiddlers were imported:
 
-# [[$:/_/bb/config/ViewTemplateBodyFilters/card]]
+# [[OrderItem]]
+# [[Order]]
+# [[Product]]
+# [[Supplier]]
+# [[Customer]]
