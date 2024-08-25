@@ -1,6 +1,6 @@
 caption: SQL Where
 created: 20240706235540278
-modified: 20240708231509430
+modified: 20240713010525383
 source: https://www.dofactory.com/sql/where
 tags: Example
 title: Example/020
@@ -14,7 +14,7 @@ SELECT *
 ```
 
 !!! Filter
-```text
+```wikitext
 [tag[Supplier]country[France]]
 ```
 

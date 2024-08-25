@@ -1,6 +1,6 @@
 caption: SQL Where In (alternate 2)
 created: 20240707014622554
-modified: 20240707015153779
+modified: 20240713010713006
 source: https://www.dofactory.com/sql/order-by
 tags: Example TODO
 title: Example/042
@@ -14,7 +14,7 @@ SELECT *
 ```
 
 !!! Filter
-```text
+```wikitext
 [tag[Supplier]] :filter[search:country:some[USA Japan Germany]]
 ```
 

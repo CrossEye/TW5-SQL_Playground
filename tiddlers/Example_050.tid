@@ -1,6 +1,6 @@
 caption: SQL Inner Join
 created: 20240707003430336
-modified: 20240707161008888
+modified: 20240713010751899
 source: https://www.dofactory.com/sql/order-by
 tags: Example TODO
 title: Example/050
@@ -15,7 +15,7 @@ SELECT CompanyName, ProductName
 
 
 !!! WikiText
-```text
+```wikitext
 <$list filter="[tag[Supplier]]" variable="company">
   <$let company-id={{{ [<company>get[id]] }}} >
    <$list filter="[tag[Product]] :filter[get[supplier-id]match<company-id>]"  variable="product" />

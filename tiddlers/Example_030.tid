@@ -1,6 +1,6 @@
 caption: SQL Order By
 created: 20240707000003169
-modified: 20240707005628469
+modified: 20240713010549982
 source: https://www.dofactory.com/sql/order-by
 tags: Example
 title: Example/030
@@ -14,7 +14,7 @@ SELECT *
 ```
 
 !!! Filter
-```text
+```wikitext
 [tag[Supplier]sort[company-name]]
 ```
 

@@ -1,8 +1,8 @@
 code-body: yes
 created: 20240705160911830
-modified: 20240707011952075
+modified: 20240712031001056
 tags: $:/tags/Global
-title: $:/_sql/procedures/item-to-product
+title: $:/_/sql/procedures/item-to-product
 type: text/vnd.tiddlywiki
 
 \procedure item-to-product()

@@ -1,4 +1,21 @@
 created: 20240705163913300
-modified: 20240705163935797
-tags: TableOfContents TODO
+modified: 20240825200525043
+tags: TableOfContents TODO Noted
 title: Overview
+type: text/vnd.tiddlywiki
+
+!! Using TiddlyWiki as a Relational Database
+
+TiddlyWiki is many things.  It's front page tells us to
+
+> Use it to keep your [[to-do list|https://tiddlywiki.com/#TaskManagementExample]], to plan an [[essay or novel|https://tiddlywiki.com/#%22TiddlyWiki%20for%20Scholars%22%20by%20Alberto%20Molina]], or to organise your wedding. Record every thought that crosses your brain, or build a flexible and responsive website.
+
+But it is so much more.  People use it to keep track of their recipes, write and publish books, record their genealogies, document software systems, maintain bibliographies, record their exercise regimes, curate lists of all sorts, and so much more.
+
+<$.note>For those who've used tools like [[Microsoft Access|https://en.wikipedia.org/wiki/Microsoft_Access]], there's some interesting overlap.  But while Access focuses on creating relational databases, with some ability to present data, TiddlyWiki instead focuses on being a great way to ''present'' information.  The information it displays is contained in the same file you're working on.</$.note>
+
+At it's core, TiddlyWiki is a way to store and present data, a combination of database and presentation engine.
+
+!!! What is a relational database?
+
+A database is an organized collection of data structured for quick search and retrieval.  A //relational// database organizes its data into tables of rows and columns, much like spreadsheets.

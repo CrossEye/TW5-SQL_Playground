@@ -1,6 +1,6 @@
 caption: SQL Select
 created: 20240706230423191
-modified: 20240707005558921
+modified: 20240713004354595
 source: https://www.dofactory.com/sql/editor/select
 tags: Example
 title: Example/010
@@ -13,7 +13,7 @@ SELECT *
 ```
 
 !!! Filter
-```text
+```wikitext
 [tag[Supplier]]
 ```
 

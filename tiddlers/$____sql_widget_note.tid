@@ -1,0 +1,13 @@
+code-body: yes
+created: 20240825032020757
+modified: 20240825032215464
+tags: $:/tags/Global
+title: $:/_/sql/widget/note
+type: text/vnd.tiddlywiki
+
+\widget $.note()
+<div style="clear:both"/>
+<div class="note">
+<$slot $name="ts-raw" />
+</div>
+\end

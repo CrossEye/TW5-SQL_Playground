@@ -31,3 +31,15 @@ div[data-tags~="Example"] {
 }
 
 div[data-tags~="Broken"] {background-color: #fee;}
+
+.tc-tagged-Noted .tc-tiddler-body {
+  padding: 0 1em;
+  border-right: 20em solid #cfc;
+}
+.tc-tagged-Noted .tc-tiddler-body .note{
+  float: right;
+  width:18em;
+  margin-right: -20em;
+  display: inline-block;
+  margin-bottom: 2em;
+}

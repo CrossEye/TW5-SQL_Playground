@@ -1,6 +1,6 @@
 caption: Join 3 tables, take 2
 created: 20240706223450010
-modified: 20240707143040927
+modified: 20240713010826800
 source: https://www.dofactory.com/sql/join-3-tables
 tags: Example TODO
 title: Example/421
@@ -18,7 +18,7 @@ SELECT DISTINCT CompanyName, ProductName
 ```
 
 !!! WikiText
-```text
+```wikitext
 <table><tr><th>Company Name</th><th>Product Name</th></tr>
 <$list filter="[tag[OrderItem]get[product-id]unique[]addprefix[Product/]] 
                :map[get[supplier-id]addprefix[Supplier/]get[company-name]addsuffix[~]addsuffix{!!product-name}]
