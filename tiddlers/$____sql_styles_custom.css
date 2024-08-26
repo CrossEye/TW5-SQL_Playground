@@ -52,7 +52,7 @@ div[data-tags~="Broken"] {background-color: #fee;}
   display: inline-block;
   margin-bottom: 2em;
   font-style: italic;
-  font-size: 80%;
+  font-size: 90%;
   &:before {
     content: "←";
     font-size: 175%;
