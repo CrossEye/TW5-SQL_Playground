@@ -1,6 +1,6 @@
 {
   "name": "TW5-SQL_Playground",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Periodic Table and other chemistry tools",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/CrossEye/TW5-SQL_Playground#readme",
   "dependencies": {
-    "tiddlywiki": "^5.3.4"
+    "tiddlywiki": "^5.3.5"
   },
   "devDependencies": {
     "cross-var": "^1.1.0",

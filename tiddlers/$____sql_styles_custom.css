@@ -33,13 +33,29 @@ div[data-tags~="Example"] {
 div[data-tags~="Broken"] {background-color: #fee;}
 
 .tc-tagged-Noted .tc-tiddler-body {
-  padding: 0 1em;
-  border-right: 20em solid #eee;
+  container-type: inline-size;
+  h2, h3 {
+    color: rgb(87, 120, 216); /* TODO: derive from palette) */
+    margin: 1.5em 0 .75em;
+  }
+  .Noted {
+    width: 100%;
+    padding: 0 1cqw;
+    border-right: 25cqw solid #ececec;
+  }
 }
-.tc-tagged-Noted .tc-tiddler-body .note{
+
+.tc-tagged-Noted .tc-tiddler-body .Noted .note {
   float: right;
-  width:18em;
-  margin-right: -20em;
+  width: 22cqw;
+  margin-right: -25cqw;
   display: inline-block;
   margin-bottom: 2em;
+  font-style: italic;
+  font-size: 80%;
+  &:before {
+    content: "←";
+    font-size: 175%;
+    margin-left: -2cqw;
+  }
 }
