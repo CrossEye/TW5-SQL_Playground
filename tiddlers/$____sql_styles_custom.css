@@ -42,20 +42,19 @@ div[data-tags~="Broken"] {background-color: #fee;}
     width: 100%;
     padding: 0 1cqw;
     border-right: 25cqw solid #ececec;
-  }
-}
-
-.tc-tagged-Noted .tc-tiddler-body .Noted .note {
-  float: right;
-  width: 22cqw;
-  margin-right: -25cqw;
-  display: inline-block;
-  margin-bottom: 2em;
-  font-style: italic;
-  font-size: 90%;
-  &:before {
-    content: "←";
-    font-size: 175%;
-    margin-left: -2cqw;
+    .note {
+      float: right;
+      display: inline-block;
+      width: 22cqw;
+      margin-right: -25cqw;
+      margin-bottom: 2em;
+      font-style: italic;
+      font-size: 90%;
+      &:before {
+        content: "←";
+        font-size: 175%;
+        margin-left: -2cqw;
+      }
+    }
   }
 }
