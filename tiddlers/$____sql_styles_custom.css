@@ -41,7 +41,7 @@ div[data-tags~="Broken"] {background-color: #fee;}
   .Noted {
     width: 100%;
     padding: 0 1cqw;
-    border-right: 25cqw solid #ececec;
+    border-right: 25cqw solid #f9f9f9;
     .note {
       float: right;
       display: inline-block;

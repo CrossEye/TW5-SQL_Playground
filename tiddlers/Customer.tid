@@ -1,7 +1,7 @@
 _fields_: id first-name last-name city country phone
 caption: Customers
 created: 20240703173913071
-modified: 20240710013833690
+modified: 20240827005628774
 tags: Table
 title: Customer
 type: text/vnd.tiddlywiki
