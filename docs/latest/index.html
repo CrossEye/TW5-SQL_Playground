@@ -261,6 +261,10 @@ Error message and password prompt
 
 <li>About</li>
 
+<li>Adding ViewTemplates</li>
+
+<li>Blank data tiddlers</li>
+
 <li>Brazil</li>
 
 <li>Countries</li>
@@ -6621,6 +6625,8 @@ Error message and password prompt
 
 <li>Scott Sauyet</li>
 
+<li>Simple Customer</li>
+
 <li>Supplier</li>
 
 <li>Supplier/1</li>
@@ -6784,7 +6790,7 @@ Error message and password prompt
 ,
 {"title":"$:/DefaultTiddlers","created":"20240703173538434","modified":"20240706235042758","type":"text/vnd.tiddlywiki","text":"Overview\nExample\nTable\n","revision":"0","bag":"default"}
 ,
-{"title":"$:/Import","status":"complete","type":"text/vnd.tiddlywiki","text":"The following tiddlers were imported:\n\n# [[$:/plugins/ScottSauyet/WizardNav]]","revision":"0","bag":"default"}
+{"title":"$:/Import","status":"complete","type":"text/vnd.tiddlywiki","text":"The following tiddlers were imported:\n\n# [[TestCases/TranscludeWidget/SimpleTransclusion]]","revision":"0","bag":"default"}
 ,
 {"title":"$:/isEncrypted","text":"no","revision":"0","bag":"default"}
 ,
@@ -6834,13 +6840,17 @@ Error message and password prompt
 ,
 {"title":"About","caption":"About (version 0.3.1+)","created":"20240707202916262","modified":"20240707203139458","tags":"TableOfContents TODO","type":"text/vnd.tiddlywiki","version":"0.3.1+","text":"\n\n!! Credits\n\nThe primary author of this is [[Scott Sauyet]].  I hope to add a [[Credits]] page to celebrate those who have helped.\n\n!! Technology\n\n{{TiddlyWiki}}\n\n!! Version\n\n{{!!version}}","revision":"0","bag":"default"}
 ,
+{"title":"Adding ViewTemplates","created":"20240831235752884","modified":"20240901040547380","tags":"[[Current Relational DB]]","type":"text/vnd.tiddlywiki","text":"{{Blank data tiddlers}}","revision":"0","bag":"default"}
+,
+{"title":"Blank data tiddlers","created":"20240901040545318","modified":"20240901040545318","tags":"[[Adding ViewTemplates]]","type":"text/vnd.tiddlywiki","text":"!! Blank data tiddlers\n\nStarting with a simple Customer tiddler, [[Customer/13]] with fields like this:\n\n\u003C$let currentTiddler=\"Customer/13\">\n\u003Cdiv style=\"display: flex;\">\n\u003Cdiv style=\"margin: 1em 2em;\">\n\u003Ch3>{{{ [\u003CcurrentTiddler>tags[]tag[Table]first[]] }}} Fields\u003C/h3>\n\u003Ctable class=\"field-list\">\n  \u003Ctr>\u003Cth>Name\u003C/th>\u003Cth>Value\u003C/th>\u003C/tr>\n\u003C$list filter=\"[\u003CcurrentTiddler>tags[]tag[Table]first[]get[_fields_]enlist-input[]]\" variable=\"field\">\n  \u003Ctr>\u003Ctd>\u003C\u003Cfield>>\u003C/td>\u003Ctd>\u003C$text text={{{ [\u003CcurrentTiddler>get\u003Cfield>] }}} />\u003C/td>\u003C/tr>\n\u003C/$list>\n\u003C/table>\n\u003Cbr/>\n\u003C/div>\n\u003Cdiv style=\"margin: 1em 2em;\">\n\u003Ch3>Generic Wiki Fields\u003C/h3>\n\u003Ctable class=\"field-list\">\n  \u003Ctr>\u003Cth>Name\u003C/th>\u003Cth>Value\u003C/th>\u003C/tr>\n\u003C$list filter=\"[\u003CcurrentTiddler>fields[]] -[\u003CcurrentTiddler>tags[]tag[Table]get[_fields_]enlist-input[]] +[sort[]]\" variable=\"field\">\n  \u003Ctr>\u003Ctd>\u003C\u003Cfield>>\u003C/td>\u003Ctd>\u003C$text text={{{ [\u003CcurrentTiddler>get\u003Cfield>] }}} />\u003C/td>\u003C/tr>\n\u003C/$list>\n\u003C/table>\n\u003C/div>\n\u003C/div>\n\u003C/$let>\n\nWe can see that the output is entirely blank.  This makes sense.  Data tiddlers often have no text fields.\n\n\u003C\u003Ctestcase \"Simple Customer\">>","revision":"0","bag":"default"}
+,
 {"title":"Brazil","created":"20240710013210934","modified":"20240710013210934","type":"text/vnd.tiddlywiki","revision":"0","bag":"default"}
 ,
 {"title":"Countries","created":"20240709005229121","modified":"20240709014225010","tags":"","type":"text/vnd.tiddlywiki","text":"\u003Cdiv style=\"column-width: 12em; padding-top: 0;\">\u003C\u003Clist-links filter:\"[all.countries[]]\" >>\u003C/div>","revision":"0","bag":"default"}
 ,
 {"title":"Countries 1","created":"20240709022357540","modified":"20240709122936177","tags":"","type":"text/vnd.tiddlywiki","text":"\u003C$list filter=\"France Brazil Ecuador Russia USA\" >\n  \u003Cli>{{{ [all.countries[]match\u003CcurrentTiddler>then[yes]else[no]] }}}\u003C/li>\n\u003C/$list>","revision":"0","bag":"default"}
 ,
-{"title":"Current Relational DB","created":"20240826011507139","modified":"20240827023112047","tags":"TODO TableOfContents Wizard","type":"text/vnd.tiddlywiki","text":"This whole wiki is describing a certain style of TiddlyWiki.  In order to demonstrate these techniques, this document itself is an example of the style.\n\n!! Tutorial","revision":"0","bag":"default"}
+{"title":"Current Relational DB","created":"20240826011507139","list":"[[Data Design]] [[Adding ViewTemplates]]","modified":"20240831235831826","tags":"TODO TableOfContents Wizard","type":"text/vnd.tiddlywiki","text":"This whole wiki is describing a certain style of TiddlyWiki.  In order to demonstrate these techniques, this document itself is an example of the style.\n\n!! Tutorial","revision":"0","bag":"default"}
 ,
 {"title":"Customer","_fields_":"id first-name last-name city country phone","caption":"Customers","created":"20240703173913071","modified":"20240827005628774","tags":"Table","type":"text/vnd.tiddlywiki","text":"\u003Cul class=\"one-liners\">\n\u003C$list filter=\"[tag[Customer]sort[last-name]]\">\n\u003Cli>\u003C$transclude tiddler=\"$:/_/sql/templates/CustomerLine\"/>\u003C/li>\n\u003C/$list>\n\u003C/ul>","revision":"0","bag":"default"}
 ,
@@ -6852,7 +6862,7 @@ Error message and password prompt
 ,
 {"title":"Customer/12","caption":"Patricio Simpson","city":"Buenos Aires","country":"Argentina","created":"20240705011330077","first-name":"Patricio","id":"12","last-name":"Simpson","modified":"20240705011330077","phone":"(1) 135-5555","tags":"Customer","type":"text/vnd.tiddlywiki","revision":"0","bag":"default"}
 ,
-{"title":"Customer/13","caption":"Francisco Chang","city":"México D.F.","country":"Mexico","created":"20240705011330076","first-name":"Francisco","id":"13","last-name":"Chang","modified":"20240705011330076","phone":"(5) 555-3392","tags":"Customer","type":"text/vnd.tiddlywiki","revision":"0","bag":"default"}
+{"title":"Customer/13","caption":"Francisco Chang","city":"México D.F.","country":"Mexico","created":"20240705011330076","first-name":"Francisco","id":"13","last-name":"Chang","modified":"20240901025013017","phone":"(5) 555-3392","tags":"Customer","type":"text/vnd.tiddlywiki","revision":"0","bag":"default"}
 ,
 {"title":"Customer/14","caption":"Yang Wang","city":"Bern","country":"Switzerland","created":"20240705011330075","first-name":"Yang","id":"14","last-name":"Wang","modified":"20240705011330075","phone":"0452-076545","tags":"Customer","type":"text/vnd.tiddlywiki","revision":"0","bag":"default"}
 ,
@@ -7000,7 +7010,7 @@ Error message and password prompt
 ,
 {"title":"Customer/8","caption":"Martín Sommer","city":"Madrid","country":"Spain","created":"20240705011330081","first-name":"Martín","id":"8","last-name":"Sommer","modified":"20240705011330081","phone":"(91) 555 22 82","tags":"Customer","type":"text/vnd.tiddlywiki","revision":"0","bag":"default"}
 ,
-{"title":"Customer/80","caption":"Miguel Angel Paolino","city":"México D.F.","country":"Mexico","created":"20240705011330009","first-name":"Miguel","id":"80","last-name":"Angel Paolino","modified":"20240705011330009","phone":"(5) 555-2933","tags":"Customer","type":"text/vnd.tiddlywiki","revision":"0","bag":"default"}
+{"title":"Customer/80","caption":"Miguel Angel Paolino","city":"México D.F.","country":"Mexico","created":"20240705011330009","first-name":"Miguel","id":"80","last-name":"Angel Paolino","modified":"20240901000924365","phone":"(5) 555-2933","tags":"Customer","type":"text/vnd.tiddlywiki","revision":"0","bag":"default"}
 ,
 {"title":"Customer/81","caption":"Anabela Domingues","city":"Sao Paulo","country":"Brazil","created":"20240705011330008","first-name":"Anabela","id":"81","last-name":"Domingues","modified":"20240705011330008","phone":"(11) 555-2167","tags":"Customer","type":"text/vnd.tiddlywiki","revision":"0","bag":"default"}
 ,
@@ -13030,9 +13040,9 @@ Error message and password prompt
 ,
 {"title":"OrderItem/999","caption":"OrderItem/999","created":"20240705011328062","id":"999","modified":"20240705011328062","order-id":"378","product-id":"42","quantity":"5","tags":"OrderItem","type":"text/vnd.tiddlywiki","unit-price":"14.00","revision":"0","bag":"default"}
 ,
-{"title":"Overview","created":"20240705163913300","list":"[[This Document]] [[Using TiddlyWiki as a Relational Database]] [[How Does TiddlyWiki Fit In?]] [[What's to Come]]","modified":"20240827020547881","tags":"TableOfContents TODO Noted","type":"text/vnd.tiddlywiki","text":"\u003C$list filter=\"[tag\u003CcurrentTiddler>!has[draft.of]]\">\n\u003Ch2>\u003C$link />\u003C/h2>\n\u003C$transclude mode=\"block\"/>\n\u003C/$list>\n","revision":"0","bag":"default"}
+{"title":"Overview","created":"20240705163913300","list":"[[This Document]] [[Using TiddlyWiki as a Relational Database]] [[How Does TiddlyWiki Fit In?]] [[What's to Come]]","modified":"20240901023720616","tags":"TableOfContents TODO Noted","type":"text/vnd.tiddlywiki","text":"\u003C$list filter=\"[tag\u003CcurrentTiddler>!has[draft.of]]\">\n\u003Ch2>\u003C$link />\u003C/h2>\n\u003C$transclude mode=\"block\"/>\n\u003C/$list>\n","revision":"0","bag":"default"}
 ,
-{"title":"Prerequisites","created":"20240826000205950","modified":"20240826001245788","tags":"[[This Document]] Noted","type":"text/vnd.tiddlywiki","text":"\u003C$.note>Of course, if you ''do'' have some expertise, I would appreciate any suggestions, guidance, corrections, etc.  (\u003Ca href=\"mailto:scott@sauyet.com\">scott@sauyet.com\u003C/a>)\u003C/$.note>\nTo understand this, you should already have a reasonable grasp of Tiddlywiki.  You should be able to create a wiki, add new tiddlers, and perform some minimal customization of your wiki.  You do not need any deep expertise, however.  This is aimed at SQL users, but I'm hoping that others can still generally follow along.","revision":"0","bag":"default"}
+{"title":"Prerequisites","created":"20240826000205950","modified":"20240901023911672","tags":"[[This Document]] Noted","type":"text/vnd.tiddlywiki","text":"To understand this, you should already have a reasonable grasp of Tiddlywiki.  You should be able to create a wiki, add new tiddlers, and perform some minimal customization of your wiki.  \u003C$.note>Of course, if you ''do'' have some expertise, I would appreciate any suggestions, guidance, corrections, etc.  (\u003Ca href=\"mailto:scott@sauyet.com\">scott@sauyet.com\u003C/a>)\u003C/$.note>  You do not need any deep expertise, however. This is aimed at SQL users, but I'm hoping that others can still generally follow along.","revision":"0","bag":"default"}
 ,
 {"created":"20240703174104773","text":"\u003C\u003Clist-links filter:\"[tag\u003CcurrentTiddler>!has[draft.of]]\" >>","title":"Product","modified":"20240709212151018","tags":"Table","type":"text/vnd.tiddlywiki","caption":"Products","_fields_":"id is-discontinued package product-name\tsupplier-id unit-price","revision":"0","bag":"default"}
 ,
@@ -13194,6 +13204,8 @@ Error message and password prompt
 ,
 {"title":"Scott Sauyet","created":"20240707203349951","modified":"20240707203403230","tags":"TODO","type":"text/vnd.tiddlywiki","text":"Hi, I'm Scott@","revision":"0","bag":"default"}
 ,
+{"title":"Simple Customer","text":"title: Narrative\n\nNote that the display of a plain data tiddler is entirely blank.\n\n+\n\ntitle: Customer/13\ntags: Customer\ncaption: Francisco Chang\ncity: México D.F.\ncountry: Mexico\ncreated: 20240705011330076\nfirst-name: Francisco\nid: 13\nlast-name: Chang\nmodified: 20240901025013017\nphone: (5) 555-3392\ntype: text/vnd.tiddlywiki\n\n+\n\ntitle: Description\n\nThe default output of a data tiddler is empty\n\n+\n\ntitle: Output\n\n{{Customer/13}}\n\n","type":"text/vnd.tiddlywiki-multiple","code-body":"yes","created":"20240901025125906","description":"A plain data tiddler","modified":"20240901040637860","tags":"$:/tags/wiki-test-spec","revision":"0","bag":"default"}
+,
 {"title":"Supplier","_fields_":"id city company-name contact-name country fax phone","caption":"Suppliers","created":"20240703174151065","modified":"20240709212231342","tags":"Table","type":"text/vnd.tiddlywiki","text":"\u003C\u003Clist-links filter:\"[tag\u003CcurrentTiddler>!has[draft.of]]\" >>","revision":"0","bag":"default"}
 ,
 {"title":"Supplier/1","caption":"Exotic Liquids","city":"London","company-name":"Exotic Liquids","contact-name":"Charlotte Cooper","country":"UK","created":"20240705011329997","fax":"NULL","id":"1","modified":"20240705011329997","phone":"(171) 555-2222","tags":"Supplier","type":"text/vnd.tiddlywiki","revision":"0","bag":"default"}
@@ -13260,7 +13272,7 @@ Error message and password prompt
 ,
 {"title":"Test all countries","created":"20240709011519676","modified":"20240709030844191","tags":"","type":"text/vnd.tiddlywiki","text":"* {{{ [all.countries[]match[France]then[yes]else[no]] }}}\n* {{{ [all.countries[]match[Ecuador]then[yes]else[no]] }}}\n\n","revision":"0","bag":"default"}
 ,
-{"title":"This Document","created":"20240825235229683","modified":"20240826001227117","tags":"Overview Noted","type":"text/vnd.tiddlywiki","text":"This is an explanation of how to use TiddlyWiki as a combination of relational database and web display.  There are many other ways to use TiddlyWiki, but this is a powerful technique.\n\nThis is mostly aimed at those who already understand relational databases and SQL, and many of the lessons are meant to show how to convert such knowledge to use within TiddlyWiki.  But other TiddlyWiki users interested in the technique should be able to glean a fair bit from it.\n\n\u003C$list filter=\"[tag\u003CcurrentTiddler>!has[draft.of]]\">\n\u003Ch3>\u003C$link />\u003C/h3>\n\u003C$transclude mode=\"block\"/>\n\u003C/$list>","revision":"0","bag":"default"}
+{"title":"This Document","created":"20240825235229683","modified":"20240901023748431","tags":"Overview Noted","type":"text/vnd.tiddlywiki","text":"This is an explanation of how to use TiddlyWiki as a combination of relational database and web display.  There are many other ways to use TiddlyWiki, but this is a powerful technique.\n\nThis is mostly aimed at those who already understand relational databases and SQL, and many of the lessons are meant to show how to convert such knowledge to use within TiddlyWiki.  But other TiddlyWiki users interested in the technique should be able to glean a fair bit from it.\n\n\u003C$list filter=\"[tag\u003CcurrentTiddler>!has[draft.of]]\">\n\u003Ch3>\u003C$link />\u003C/h3>\n\u003C$transclude mode=\"block\"/>\n\u003C/$list>","revision":"0","bag":"default"}
 ,
 {"title":"TiddlyWiki","created":"20230326225204422","modified":"20240707203303731","tags":"","type":"text/vnd.tiddlywiki","text":"This page is built atop [[TiddlyWiki|https://tiddlywiki.com/]], which is described as \"a unique [[non-linear|https://tiddlywiki.com/#Philosophy%20of%20Tiddlers]] notebook for [[capturing|https://tiddlywiki.com/#Creating%20and%20editing%20tiddlers]], [[organising|https://tiddlywiki.com/#Structuring%20TiddlyWiki]] \nand [[sharing|https://tiddlywiki.com/#Sharing%20your%20tiddlers%20with%20others]] complex information.\"\n\nIt is a single-page wiki, a user-defined database, a note-taking tool, and much more.  ","revision":"0","bag":"default"}
 ,
