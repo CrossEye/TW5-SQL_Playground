@@ -183,6 +183,8 @@ Error message and password prompt
 
 <li>$:/_/sql/templates/Table</li>
 
+<li>$:/_/sql/templates/TableTag</li>
+
 <li>$:/_/sql/widget/note</li>
 
 <li>$:/config/AnimationDuration</li>
@@ -266,6 +268,8 @@ Error message and password prompt
 <li>Blank data tiddlers</li>
 
 <li>Brazil</li>
+
+<li>Complex Query</li>
 
 <li>Countries</li>
 
@@ -6762,6 +6766,8 @@ Error message and password prompt
 ,
 {"title":"$:/_/sql/templates/Table","created":"20240706144448912","modified":"20240707012325360","tags":"$:/tags/ViewTemplate","type":"text/vnd.tiddlywiki","text":"\u003C% if [\u003CcurrentTiddler>tags[]tag[Table]] %>\n\n\u003C\u003Cfield-list>>\n\u003C% endif %>","revision":"0","bag":"default"}
 ,
+{"title":"$:/_/sql/templates/TableTag","created":"20251218011835708","list-before":"$:/core/ui/ViewTemplate/body","modified":"20251218012012141","tags":"$:/tags/ViewTemplate","type":"text/vnd.tiddlywiki","text":"\u003C% if [\u003CcurrentTiddler>tag[Table]] %>\n\n!! Fields\n\u003Cul>\n\u003C$list filter=[enlist{!!_fields_}] >\n  \u003Cli>{{!!title}}\u003C/li>\n\u003C/$list>\n\u003C/ul>\n\n!! Total records in table \"{{!!title}}\": \u003C$text text={{{ [tag{!!title}count[]] }}} />\n\n\u003C% endif %>","revision":"0","bag":"default"}
+,
 {"title":"$:/_/sql/widget/note","code-body":"yes","created":"20240825032020757","modified":"20240826233230374","tags":"$:/tags/Global","type":"text/vnd.tiddlywiki","text":"\\widget $.note()\n\u003Cspan style=\"clear:both\"/>\n\u003Cspan class=\"note\">\n\u003C$slot $name=\"ts-raw\" />\n\u003C/span>\n\\end","revision":"0","bag":"default"}
 ,
 {"title":"$:/config/AnimationDuration","created":"20230819224647187","modified":"20230819224647945","revision":"0","type":"text/vnd.tiddlywiki","text":"250","bag":"default"}
@@ -6790,7 +6796,7 @@ Error message and password prompt
 ,
 {"title":"$:/DefaultTiddlers","created":"20240703173538434","modified":"20240706235042758","type":"text/vnd.tiddlywiki","text":"Overview\nExample\nTable\n","revision":"0","bag":"default"}
 ,
-{"title":"$:/Import","status":"complete","type":"text/vnd.tiddlywiki","text":"The following tiddlers were imported:\n\n# [[TestCases/TranscludeWidget/SimpleTransclusion]]","revision":"0","bag":"default"}
+{"title":"$:/Import","status":"complete","type":"text/vnd.tiddlywiki","text":"The following tiddlers were imported:\n\n# [[Complex Query]]","revision":"0","bag":"default"}
 ,
 {"title":"$:/isEncrypted","text":"no","revision":"0","bag":"default"}
 ,
@@ -6845,6 +6851,8 @@ Error message and password prompt
 {"title":"Blank data tiddlers","created":"20240901040545318","modified":"20240901040545318","tags":"[[Adding ViewTemplates]]","type":"text/vnd.tiddlywiki","text":"!! Blank data tiddlers\n\nStarting with a simple Customer tiddler, [[Customer/13]] with fields like this:\n\n\u003C$let currentTiddler=\"Customer/13\">\n\u003Cdiv style=\"display: flex;\">\n\u003Cdiv style=\"margin: 1em 2em;\">\n\u003Ch3>{{{ [\u003CcurrentTiddler>tags[]tag[Table]first[]] }}} Fields\u003C/h3>\n\u003Ctable class=\"field-list\">\n  \u003Ctr>\u003Cth>Name\u003C/th>\u003Cth>Value\u003C/th>\u003C/tr>\n\u003C$list filter=\"[\u003CcurrentTiddler>tags[]tag[Table]first[]get[_fields_]enlist-input[]]\" variable=\"field\">\n  \u003Ctr>\u003Ctd>\u003C\u003Cfield>>\u003C/td>\u003Ctd>\u003C$text text={{{ [\u003CcurrentTiddler>get\u003Cfield>] }}} />\u003C/td>\u003C/tr>\n\u003C/$list>\n\u003C/table>\n\u003Cbr/>\n\u003C/div>\n\u003Cdiv style=\"margin: 1em 2em;\">\n\u003Ch3>Generic Wiki Fields\u003C/h3>\n\u003Ctable class=\"field-list\">\n  \u003Ctr>\u003Cth>Name\u003C/th>\u003Cth>Value\u003C/th>\u003C/tr>\n\u003C$list filter=\"[\u003CcurrentTiddler>fields[]] -[\u003CcurrentTiddler>tags[]tag[Table]get[_fields_]enlist-input[]] +[sort[]]\" variable=\"field\">\n  \u003Ctr>\u003Ctd>\u003C\u003Cfield>>\u003C/td>\u003Ctd>\u003C$text text={{{ [\u003CcurrentTiddler>get\u003Cfield>] }}} />\u003C/td>\u003C/tr>\n\u003C/$list>\n\u003C/table>\n\u003C/div>\n\u003C/div>\n\u003C/$let>\n\nWe can see that the output is entirely blank.  This makes sense.  Data tiddlers often have no text fields.\n\n\u003C\u003Ctestcase \"Simple Customer\">>","revision":"0","bag":"default"}
 ,
 {"title":"Brazil","created":"20240710013210934","modified":"20240710013210934","type":"text/vnd.tiddlywiki","revision":"0","bag":"default"}
+,
+{"title":"Complex Query","created":"20251217230534905","modified":"20251218012749349","tags":"","type":"text/vnd.tiddlywiki","text":"!! Target\n\nThis query [[on the original database|https://www.dofactory.com/sql/editor/]] selects the ten suppliers with the largest total sales over the third quarter of 2024.  It returns rows containing the company name and total sales.\n\n```sql\nSELECT TOP 10 CompanyName, SUM(LineTotal) as Total\n  FROM (\n       SELECT CompanyName, OI.UnitPrice * OI.Quantity AS LineTotal FROM OrderItem OI\n         JOIN [Order] O ON OI.OrderId = O.id\n         JOIN Product P ON OI.ProductId = P.Id\n         JOIN Supplier S ON P.SupplierId = S.Id\n        WHERE O.OrderDate >= '07/01/2024'\n          AND O.OrderDate \u003C '10/01/2024'\n  ) Totals\nGROUP BY CompanyName\nORDER BY Total DESC\n```\n\u003Cdetails>\n  \u003Csummary>Results\u003C/summary>\u003Cdiv>\n\n!!!! Main query\n\n|!CompanyName | !Total|\n|Aux joyeux ecclésiastiques | 32561.20|\n|Plutzer Lebensmittelgroßmärkte AG | 19597.60|\n|Gai pâturage | 14128.80|\n|Pavlova, Ltd. | 10649.80|\n|Norske Meierier | 8080.00|\n|Forêts d'érables | 7932.80|\n|Pasta Buttini s.r.l. | 7350.40|\n|Heli Süßwaren GmbH & Co. KG | 6850.50|\n|G'day, Mate | 6373.20|\n|Specialty Biscuits, Ltd. | 5583.70|\n\n\n!!!! Inner Query\n\n|!CompanyName | !LineTotal|\n|Tokyo Traders | 744.00|\n|Heli Süßwaren GmbH & Co. KG | 398.40|\n|Gai pâturage | 217.60|\n|Refrescos Americanas LTDA | 36.00|\n|Bigfoot Breweries | 112.00|\n|Svensk Sjöföda AB | 304.00|\n|Pavlova, Ltd. | 778.40|\n|Formaggi Fortini s.r.l. | 700.00|\n|Gai pâturage | 2176.00|\n|Plutzer Lebensmittelgroßmärkte AG | 1092.00|\n|Plutzer Lebensmittelgroßmärkte AG | 3465.00|\n|Aux joyeux ecclésiastiques | 2108.00|\n| |&nbsp;|\n|//(...234 more records...)// |  ... |\n\n\u003C/div>\u003C/details>\n\n!! Notes\n\n  * We'll use 2013-07-01 and 2013-10-01 instead, as the data here was derived from an older version of the database.\n\n!! Steps\n\n!!! Collect the proper orders\n\nA simple filter.\n\n```\n\u003C\u003Clist-links \"\"\"\n    [tag[Order]] \n    :filter[get[order-date]compare:string:gteq[20130701]compare:string:lt[20131001]]\n\"\"\" >>\n```\n\n\u003Cdetails>\n  \u003Csummary>Results\u003C/summary>\u003Cdiv>\n  \u003C\u003Clist-links \"\"\"\n      [tag[Order]] \n      :filter[get[order-date]compare:string:gteq[20130701]compare:string:lt[20131001]]\n  \"\"\" >>\n\u003C/div>\u003C/details>\n\n\n!!! Collect the order lines\n\n```\n  \u003C\u003Clist-links \"\"\"\n      [tag[Order]] \n      :filter[get[order-date]compare:string:gteq[20130701]compare:string:lt[20131001]]\n      :map:flat[all[tiddlers]tag[OrderItem]order-id{!!id}]\n  \"\"\">>\n```\n\n\u003Cdetails>\n  \u003Csummary>Results\u003C/summary>\u003Cdiv>\n  \u003C\u003Clist-links \"\"\"\n      [tag[Order]] \n      :filter[get[order-date]compare:string:gteq[20130701]compare:string:lt[20131001]]\n      :map:flat[all[tiddlers]tag[OrderItem]order-id{!!id}]\n  \"\"\">>\n\u003C/div>\u003C/details>\n","revision":"0","bag":"default"}
 ,
 {"title":"Countries","created":"20240709005229121","modified":"20240709014225010","tags":"","type":"text/vnd.tiddlywiki","text":"\u003Cdiv style=\"column-width: 12em; padding-top: 0;\">\u003C\u003Clist-links filter:\"[all.countries[]]\" >>\u003C/div>","revision":"0","bag":"default"}
 ,
@@ -7066,7 +7074,7 @@ Error message and password prompt
 ,
 {"title":"How Does TiddlyWiki Fit In?","created":"20240826011627331","modified":"20240826024224006","tags":"Overview Noted TODO","type":"text/vnd.tiddlywiki","text":"The basic unit of TiddlyWiki is the *tiddler*.  A tiddler is a collection of name-value pairs.  Most prominent is the `text` field, and after that the `tags`.  But there are arbitrarily many fields allowed, and they can be structured as you like.  A set of similarly-structured tiddlers can easily represent a certain kind of data.  \u003C$.note>While a shared tag is most common, there are other ways to group tiddlers as a table.  That's an advanced topic we may or may not cover. \u003C!-- TODO -->\u003C/$.note>By using a shared tag for the tiddlers organized in a particular way, we can treat that tag as a close equivalent to a table in a relational database.  This document explores how to do so.","revision":"0","bag":"default"}
 ,
-{"title":"Order","_fields_":"id customer-id order-date order-number total-amount","caption":"Orders","created":"20240703174029704","modified":"20240709212619115","tags":"Table TableOfContents","type":"text/vnd.tiddlywiki","text":"\u003Cul>\n\u003C$list filter=\"[tag[Order]!sort[order-date]]\">\n \u003Cli>\u003C$transclude tiddler=\"$:/_/sql/templates/OrderCard\" />\u003C/li>\n\u003C/$list>\n\u003C/ul>","revision":"0","bag":"default"}
+{"title":"Order","_fields_":"id customer-id order-date order-number total-amount","caption":"Orders","created":"20240703174029704","modified":"20251218012048575","tags":"Table TableOfContents","type":"text/vnd.tiddlywiki","text":"!! Records\n\u003Cul>\n\u003C$list filter=\"[tag[Order]!sort[order-date]]\">\n \u003Cli>\u003C$transclude tiddler=\"$:/_/sql/templates/OrderCard\" />\u003C/li>\n\u003C/$list>\n\u003C/ul>","revision":"0","bag":"default"}
 ,
 {"title":"Order/1","caption":"Order/1","created":"20240705011329890","customer-id":"85","id":"1","modified":"20240705011329890","order-date":"20120704120000000","order-number":"542378","tags":"Order","total-amount":"440.00","type":"text/vnd.tiddlywiki","revision":"0","bag":"default"}
 ,
