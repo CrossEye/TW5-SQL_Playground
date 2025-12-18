@@ -1,9 +1,7 @@
 caption: Order/409
-created: 20240705011329482
 customer-id: 32
 id: 409
-modified: 20240705011329482
-order-date: 20130904120000000
+order-date: 20240904120000000
 order-number: 542786
 tags: Order
 title: Order/409

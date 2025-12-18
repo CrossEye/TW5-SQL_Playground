@@ -1,9 +1,7 @@
 caption: Order/95
-created: 20240705011329796
 customer-id: 25
 id: 95
-modified: 20240705011329796
-order-date: 20121030120000000
+order-date: 20231030120000000
 order-number: 542472
 tags: Order
 title: Order/95

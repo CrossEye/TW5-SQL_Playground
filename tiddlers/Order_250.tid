@@ -1,9 +1,7 @@
 caption: Order/250
-created: 20240705011329641
 customer-id: 44
 id: 250
-modified: 20240705011329641
-order-date: 20130404120000000
+order-date: 20240404120000000
 order-number: 542627
 tags: Order
 title: Order/250

@@ -1,9 +1,7 @@
 caption: Order/161
-created: 20240705011329730
 customer-id: 23
 id: 161
-modified: 20240705011329730
-order-date: 20130108120000000
+order-date: 20240108120000000
 order-number: 542538
 tags: Order
 title: Order/161

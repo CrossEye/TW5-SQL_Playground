@@ -1,9 +1,7 @@
 caption: Order/403
-created: 20240705011329488
 customer-id: 21
 id: 403
-modified: 20240705011329488
-order-date: 20130829120000000
+order-date: 20240829120000000
 order-number: 542780
 tags: Order
 title: Order/403

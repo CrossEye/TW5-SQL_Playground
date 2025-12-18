@@ -1,9 +1,7 @@
 caption: Order/15
-created: 20240705011329876
 customer-id: 65
 id: 15
-modified: 20240705011329876
-order-date: 20120722120000000
+order-date: 20230722120000000
 order-number: 542392
 tags: Order
 title: Order/15

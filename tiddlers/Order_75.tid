@@ -1,9 +1,7 @@
 caption: Order/75
-created: 20240705011329816
 customer-id: 58
 id: 75
-modified: 20240705011329816
-order-date: 20121004120000000
+order-date: 20231004120000000
 order-number: 542452
 tags: Order
 title: Order/75

@@ -1,9 +1,7 @@
 caption: Order/3
-created: 20240705011329888
 customer-id: 34
 id: 3
-modified: 20240705011329888
-order-date: 20120708120000000
+order-date: 20230708120000000
 order-number: 542380
 tags: Order
 title: Order/3

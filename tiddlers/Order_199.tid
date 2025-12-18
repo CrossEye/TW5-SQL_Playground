@@ -1,9 +1,7 @@
 caption: Order/199
-created: 20240705011329692
 customer-id: 79
 id: 199
-modified: 20240705011329692
-order-date: 20130214120000000
+order-date: 20240214120000000
 order-number: 542576
 tags: Order
 title: Order/199
